@@ -88,8 +88,6 @@ func (s *server) SeedMany(ctx *fiber.Ctx) error {
 	return ConstructResponse(ctx, fiber.StatusOK, "Module fetched successfully")
 }
 
-
-
 func (s *server) DeleteManyByParticipant(ctx *fiber.Ctx) error {
 
 	type Body struct {
