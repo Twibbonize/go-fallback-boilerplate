@@ -46,7 +46,7 @@ func (s *server) SeedOneByUUID(ctx *fiber.Ctx) error {
 		return ConstructResponse(ctx, http.StatusBadRequest, "uuid is required")
 	}
 
-	err := s.anyModuleSetter.SeedByUUID(requestBody.Uuid)
+	_, err := s.anyModuleSetter.FindByUUID(requestBody.Uuid, true)
 
 	if err != nil {
 		return ConstructResponse(ctx, fiber.StatusNotFound, "Module not found",)

@@ -119,7 +119,7 @@ func init() {
 
 	anyCollection := mongoClient.Database("databaseName").Collection("moduleboilerplate")
 	anyModuleSetter := moduleboilerplate.NewSetterLib(anyCollection, &redisClient)
-	anyModuleGetter := moduleboilerplate.NewGetterLib(redisClient)
+	anyModuleGetter := moduleboilerplate.NewGetterLib(&redisClient)
 
 	server := &server{
 		anyModuleGetter: *anyModuleGetter,

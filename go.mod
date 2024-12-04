@@ -3,7 +3,7 @@ module github.com/Twibbonize/go-fallback-boilerplate
 go 1.22.2
 
 require (
-	github.com/Twibbonize/go-module-boilerplate-mongodb v0.0.4
+	github.com/Twibbonize/go-module-boilerplate-mongodb v0.0.5
 	github.com/aws/aws-lambda-go v1.47.0
 	github.com/awslabs/aws-lambda-go-api-proxy v0.16.2
 	github.com/gofiber/fiber/v2 v2.52.5
