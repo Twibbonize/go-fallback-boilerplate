@@ -137,10 +137,6 @@ func init() {
 		return server.SeedOneByRandId(c);
 	})
 	
-	app.Get("seed-one-byuuid", func(c *fiber.Ctx) error {
-		return server.SeedOneByUUID(c);
-	})
-	
 	app.Get("seed-many", func(c *fiber.Ctx) error {
 		return server.SeedMany(c);
 	})

@@ -28,32 +28,13 @@ func (s *server) SeedOneByRandId(ctx *fiber.Ctx) error {
 		return ConstructResponse(ctx, http.StatusBadRequest, "RandId is required")
 	}
 
-	_, err := s.anyModuleGetter.GetByRandID(requestBody.RandId)
+	_, err := s.anyModuleSetter.SeedByRandID(requestBody.RandId)
 	if err != nil {
 		return ConstructResponse(ctx, fiber.StatusNotFound, "Module not found")
 	}
 	return ConstructResponse(ctx, fiber.StatusOK, "Module fetched successfully")
 }
 
-func (s *server) SeedOneByUUID(ctx *fiber.Ctx) error {
-
-	type Body struct {
-		Uuid string `json:"uuid" binding:"required"`
-	}
-
-	var requestBody Body
-	if errorBind := ctx.BodyParser(&requestBody); errorBind != nil {
-		return ConstructResponse(ctx, http.StatusBadRequest, "uuid is required")
-	}
-
-	_, err := s.anyModuleSetter.FindByUUID(requestBody.Uuid, true)
-
-	if err != nil {
-		return ConstructResponse(ctx, fiber.StatusNotFound, "Module not found",)
-	}
-
-	return ConstructResponse(ctx, fiber.StatusOK, "Module fetched successfully") // No data is returned in this method
-}
 
 func (s *server) SeedMany(ctx *fiber.Ctx) error {
 
